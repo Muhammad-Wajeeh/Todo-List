@@ -1,13 +1,11 @@
-const Pool = require("pg").Pool;
+const { Pool } = require("pg");
+require("dotenv").config();
 
-const pool = new Pool(
-{
-    user: "postgres",
-    password: "cgiang743",
-    host: "localhost",
-    port:5432,
-    database: "perntodo"
-}
-);
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 module.exports = pool;
