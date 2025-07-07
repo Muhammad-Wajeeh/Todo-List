@@ -11,6 +11,10 @@ app.use(express.json());
 
 //ROUTES
 
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
 //Create a todo
 
 app.post("/todos", async (req, res) => {
