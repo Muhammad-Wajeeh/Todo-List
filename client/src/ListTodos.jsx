@@ -4,7 +4,7 @@ import EditTodo from "./EditTodo";
 const ListTodos = ({ todos, setTodos }) => {
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/todos");
+      const response = await fetch("backend-production-9055.up.railway.app");
       const jsonData = await response.json();
       setTodos(jsonData);
     } catch (err) {
@@ -14,9 +14,12 @@ const ListTodos = ({ todos, setTodos }) => {
 
   const deleteATodo = async (todoId) => {
     try {
-      const response = await fetch(`http://localhost:5000/todos/${todoId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `backend-production-9055.up.railway.app/${todoId}`,
+        {
+          method: "DELETE",
+        }
+      );
       // getTodos();
       setTodos(todos.filter((todo) => todo.todo_id !== todoId));
     } catch (err) {
