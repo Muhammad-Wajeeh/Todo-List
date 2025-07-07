@@ -4,7 +4,9 @@ import EditTodo from "./EditTodo";
 const ListTodos = ({ todos, setTodos }) => {
   const getTodos = async () => {
     try {
-      const response = await fetch("backend-production-9055.up.railway.app");
+      const response = await fetch(
+        "backend-production-9055.up.railway.app/todos"
+      );
       const jsonData = await response.json();
       setTodos(jsonData);
     } catch (err) {
@@ -15,7 +17,7 @@ const ListTodos = ({ todos, setTodos }) => {
   const deleteATodo = async (todoId) => {
     try {
       const response = await fetch(
-        `backend-production-9055.up.railway.app/${todoId}`,
+        `backend-production-9055.up.railway.app/todos/${todoId}`,
         {
           method: "DELETE",
         }

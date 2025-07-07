@@ -10,11 +10,11 @@ const EditTodo = ({ todo }) => {
     try {
       const body = { description: modalDescription };
       const response = await fetch(
-        `backend-production-9055.up.railway.app/${todo.todo_id}`,
+        `backend-production-9055.up.railway.app/todos/${todo.todo_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body), 
+          body: JSON.stringify(body),
         }
       );
       window.location = "/";
