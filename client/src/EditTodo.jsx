@@ -1,7 +1,5 @@
 import React, { Fragment, useState } from "react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
 const EditTodo = ({ todo }) => {
   const [modalDescription, setModalDescription] = useState(todo.description);
 
@@ -11,11 +9,14 @@ const EditTodo = ({ todo }) => {
     e.preventDefault();
     try {
       const body = { description: modalDescription };
-      const response = await fetch(`BACKEND_URL/todos/${todo.todo_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        `https://backend-production-9055.up.railway.app/todos/${todo.todo_id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
       window.location = "/";
     } catch (error) {
       console.error(error.message);

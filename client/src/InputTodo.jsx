@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Fragment } from "react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
 const InputTodo = ({ description, setDescription, setTodos }) => {
   const getTodos = async () => {
     try {
-      const response = await fetch("BACKEND_URL/todos");
+      const response = await fetch(
+        "https://backend-production-9055.up.railway.app/todos"
+      );
       const jsonData = await response.json();
       setTodos(jsonData);
     } catch (err) {
@@ -18,11 +18,14 @@ const InputTodo = ({ description, setDescription, setTodos }) => {
     e.preventDefault();
     try {
       const body = { description: description };
-      const response = await fetch("BACKEND_URL/todos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        "https://backend-production-9055.up.railway.app/todos",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
       getTodos();
       setDescription("");
     } catch (err) {
