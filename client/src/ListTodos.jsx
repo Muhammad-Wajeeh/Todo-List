@@ -1,11 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import EditTodo from "./EditTodo";
 
+const BACKEND_URL = process.env.BACKEND_URL;
+
 const ListTodos = ({ todos, setTodos }) => {
   const getTodos = async () => {
     try {
       const response = await fetch(
-        "https://backend-production-9055.up.railway.app/todos"
+        "BACKEND_URL/todos"
       );
       const jsonData = await response.json();
       setTodos(jsonData);
@@ -17,7 +19,7 @@ const ListTodos = ({ todos, setTodos }) => {
   const deleteATodo = async (todoId) => {
     try {
       const response = await fetch(
-        `https://backend-production-9055.up.railway.app/todos/${todoId}`,
+        `BACKEND_URL/todos/${todoId}`,
         {
           method: "DELETE",
         }
