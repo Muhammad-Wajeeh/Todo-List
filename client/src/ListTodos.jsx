@@ -5,7 +5,7 @@ const ListTodos = ({ todos, setTodos }) => {
   const getTodos = async () => {
     try {
       const response = await fetch(
-        "backend-production-9055.up.railway.app/todos"
+        "https://backend-production-9055.up.railway.app/todos"
       );
       const jsonData = await response.json();
       setTodos(jsonData);
@@ -17,7 +17,7 @@ const ListTodos = ({ todos, setTodos }) => {
   const deleteATodo = async (todoId) => {
     try {
       const response = await fetch(
-        `backend-production-9055.up.railway.app/todos/${todoId}`,
+        `https://backend-production-9055.up.railway.app/todos/${todoId}`,
         {
           method: "DELETE",
         }

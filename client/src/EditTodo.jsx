@@ -10,7 +10,7 @@ const EditTodo = ({ todo }) => {
     try {
       const body = { description: modalDescription };
       const response = await fetch(
-        `backend-production-9055.up.railway.app/todos/${todo.todo_id}`,
+        `https://backend-production-9055.up.railway.app/todos/${todo.todo_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

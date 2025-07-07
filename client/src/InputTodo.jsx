@@ -5,7 +5,7 @@ const InputTodo = ({ description, setDescription, setTodos }) => {
   const getTodos = async () => {
     try {
       const response = await fetch(
-        "backend-production-9055.up.railway.app/todos"
+        "https://backend-production-9055.up.railway.app/todos"
       );
       const jsonData = await response.json();
       setTodos(jsonData);
@@ -19,7 +19,7 @@ const InputTodo = ({ description, setDescription, setTodos }) => {
     try {
       const body = { description: description };
       const response = await fetch(
-        "backend-production-9055.up.railway.app/todos",
+        "https://backend-production-9055.up.railway.app/todos",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
