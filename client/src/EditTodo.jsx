@@ -14,7 +14,7 @@ const EditTodo = ({ todo }) => {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
+          body: JSON.stringify(body), 
         }
       );
       window.location = "/";
