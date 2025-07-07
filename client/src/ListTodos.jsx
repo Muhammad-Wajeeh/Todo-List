@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import EditTodo from "./EditTodo";
 
-const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const ListTodos = ({ todos, setTodos }) => {
   const getTodos = async () => {
