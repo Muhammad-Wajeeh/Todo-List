@@ -92,5 +92,5 @@ app.delete("/todos/:id", async (req, res) => {
 });
 
 app.listen(port, "0.0.0.0", function () {
-  console.log("listening has started");
+  console.log(`Listening on port ${port}`);
 });
